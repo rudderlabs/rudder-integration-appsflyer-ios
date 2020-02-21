@@ -1,0 +1,22 @@
+{
+  "name": "Rudder-Appsflyer",
+  "version": "0.1.0",
+  "summary": "A short description of Rudder-Appsflyer.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/arnabp92/Rudder-Appsflyer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "arnabp92": "arnab@rudderlabs.com"
+  },
+  "source": {
+    "git": "https://github.com/arnabp92/Rudder-Appsflyer.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Rudder-Appsflyer/Classes/**/*"
+}
