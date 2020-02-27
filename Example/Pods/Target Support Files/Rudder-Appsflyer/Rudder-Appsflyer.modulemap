@@ -1,6 +1,0 @@
-framework module Rudder_Appsflyer {
-  umbrella header "Rudder-Appsflyer-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,3 +1,4 @@
+# WORK IN PROGRESS
 [![Version](https://img.shields.io/cocoapods/v/Rudder-Appsflyer.svg?style=flat)](https://cocoapods.org/pods/Rudder-Appsflyer)
 [![Platform](https://img.shields.io/cocoapods/p/Rudder-Appsflyer.svg?style=flat)](https://cocoapods.org/pods/Rudder-Appsflyer)
 
@@ -12,12 +13,13 @@ Rudder is a platform for collecting, storing and routing customer event data to 
 Released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Getting Started with Appsflyer Integration of iOS SDK
-1. Add [Appsflyer](https://www.appsflyer.com) as a destination in the [Dashboard](https://app.rudderlabs.com/) and provide ```devKey```.
+1. Add [Appsflyer](https://www.appsflyer.com) as a destination in the [Dashboard](https://app.rudderlabs.com/) and provide ```devKey``` and `appleAppId` from your iTunes profile.
 
 2. Rudder-Appsflyer is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Rudder-Appsflyer'
+pod 'Rudder', '~> 1.0.1-beta.1'
+pod 'Rudder-Appsflyer', '~> 1.0.1-beta.1'
 ```
 
 ## Initialize ```RudderClient```
