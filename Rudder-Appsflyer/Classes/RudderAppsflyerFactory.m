@@ -22,7 +22,7 @@ static RudderAppsflyerFactory *sharedInstance;
 }
 
 - (nonnull NSString *)key {
-    return @"Appsflyer";
+    return @"AppsFlyer";
 }
 
 - (nonnull id<RudderIntegration>)initiate:(nonnull NSDictionary *)config client:(nonnull RudderClient *)client rudderConfig:(nonnull RudderConfig *)rudderConfig {

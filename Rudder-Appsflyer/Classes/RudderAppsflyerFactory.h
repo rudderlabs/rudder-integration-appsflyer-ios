@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <RudderSDKCore/RudderIntegrationFactory.h>
+#import <Rudder/RudderIntegrationFactory.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
