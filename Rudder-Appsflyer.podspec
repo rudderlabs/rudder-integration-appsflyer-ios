@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Rudder-Appsflyer'
-  s.version          = '0.1.0-beta.1'
+  s.version          = '0.1.0-beta.2'
   s.summary          = 'Privacy and Security focused Segment-alternative. Appsflyer Native SDK integration support.'
 
   s.description      = <<-DESC
@@ -19,6 +19,6 @@ Rudder is a platform for collecting, storing and routing customer event data to 
 
   s.source_files = 'Rudder-Appsflyer/Classes/**/*'
 
-  s.dependency 'Rudder', '~> 1.0.1-beta.1'
+  s.dependency 'Rudder', '~> 1.0.1-beta.3'
   s.dependency 'AppsFlyerFramework'
 end
