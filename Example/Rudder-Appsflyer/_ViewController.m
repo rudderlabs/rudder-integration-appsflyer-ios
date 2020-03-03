@@ -7,6 +7,7 @@
 //
 
 #import "_ViewController.h"
+#import <Rudder/Rudder.h>
 
 @interface _ViewController ()
 
@@ -18,6 +19,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+[[RudderClient sharedInstance] track:@"Accepted Terms of Service" properties:@{
+    @"foo": @"bar",
+    @"foo_int": @134
+}];
+    
 }
 
 - (void)didReceiveMemoryWarning

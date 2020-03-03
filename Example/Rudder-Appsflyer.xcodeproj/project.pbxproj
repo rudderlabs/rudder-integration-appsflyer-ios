@@ -347,11 +347,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Rudder-Appsflyer_Example/Pods-Rudder-Appsflyer_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Rudder-Appsflyer/Rudder_Appsflyer.framework",
+				"${BUILT_PRODUCTS_DIR}/Rudder/Rudder.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder_Appsflyer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
