@@ -7,12 +7,28 @@
 //
 
 #import "_AppDelegate.h"
+#import <Rudder/Rudder.h>
+#import "RudderAppsflyerFactory.h"
+
+static NSString *END_POINT_URL = @"https://a48885dd.ngrok.io";
+static NSString *CONFIG_PLANE_URL = @"https://api.dev.rudderlabs.com";
+static NSString *WRITE_KEY = @"1YNwCJkmBLE3O2CrDLUJuGzQEjg";
 
 @implementation _AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    RudderConfigBuilder *builder = [[RudderConfigBuilder alloc] init];
+    [builder withEndPointUrl:END_POINT_URL];
+    [builder withConfigPlaneUrl:CONFIG_PLANE_URL];
+    [builder withTrackLifecycleEvens:YES];
+    [builder withRecordScreenViews:YES];
+    [builder withFactory:[RudderAppsflyerFactory instance]];
+    [builder withLoglevel:RudderLogLevelDebug];
+    
+    [RudderClient getInstance:WRITE_KEY config:[builder build]];
+    
     return YES;
 }
 
