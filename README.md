@@ -14,8 +14,7 @@ Released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 2. Rudder-Appsflyer is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Rudder', '1.0.1'
-pod 'Rudder-Appsflyer', '0.1.1'
+pod 'Rudder-Appsflyer'
 ```
 
 ## Initialize ```RudderClient```

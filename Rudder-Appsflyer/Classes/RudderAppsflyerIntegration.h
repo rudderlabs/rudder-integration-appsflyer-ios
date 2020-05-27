@@ -6,17 +6,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RudderIntegration.h"
-#import "RudderClient.h"
+#import <Rudder/Rudder.h>
 #import <AppsFlyerLib/AppsFlyerTracker.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RudderAppsflyerIntegration : NSObject<RudderIntegration>
+@interface RudderAppsflyerIntegration : NSObject<RSIntegration>
 
 @property (nonatomic, strong) AppsFlyerTracker *afTracker;
 
-- (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(RudderClient *)client withRudderConfig:(RudderConfig*) rudderConfig;
+- (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(RSClient *)client withRudderConfig:(RSConfig*) rudderConfig;
 
 @end
 

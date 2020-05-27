@@ -6,14 +6,12 @@
 //
 
 #import "RudderAppsflyerIntegration.h"
-#import "RudderLogger.h"
-#import "ECommerceEvents.h"
 
 @implementation RudderAppsflyerIntegration
 
 #pragma mark - Initialization
 
-- (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(nonnull RudderClient *)client  withRudderConfig:(nonnull RudderConfig *)rudderConfig {
+- (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(nonnull RSClient *)client  withRudderConfig:(nonnull RSConfig *)rudderConfig {
     self = [super init];
     if (self) {
         NSString *devKey = [config objectForKey:@"devKey"];
@@ -25,24 +23,24 @@
             [_afTracker setAppsFlyerDevKey:devKey];
             [_afTracker setAppleAppID:appleAppId];
             
-            if (rudderConfig.logLevel >= RudderLogLevelDebug) {
+            if (rudderConfig.logLevel >= RSLogLevelDebug) {
                 _afTracker.isDebug = YES;
             } else {
                 _afTracker.isDebug = NO;
             }
         }
     }
-    [RudderLogger logDebug:@"Initializing Appsflyer SDK"];
+    [RSLogger logDebug:@"Initializing Appsflyer SDK"];
     return self;
 }
 
-- (void)dump:(RudderMessage *)message {
+- (void)dump:(RSMessage *)message {
     if (message != nil) {
         [self processRudderEvent:message];
     }
 }
 
-- (void) processRudderEvent: (nonnull RudderMessage *) message {
+- (void) processRudderEvent: (nonnull RSMessage *) message {
     NSString *type = message.type;
     if ([type isEqualToString:@"identify"]) {
         if ([NSThread isMainThread]) {

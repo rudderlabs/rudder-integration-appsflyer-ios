@@ -7,7 +7,6 @@
 
 #import "RudderAppsflyerFactory.h"
 #import "RudderAppsflyerIntegration.h"
-#import "RudderLogger.h"
 
 @implementation RudderAppsflyerFactory
 
@@ -25,8 +24,8 @@ static RudderAppsflyerFactory *sharedInstance;
     return @"AppsFlyer";
 }
 
-- (nonnull id<RudderIntegration>)initiate:(nonnull NSDictionary *)config client:(nonnull RudderClient *)client rudderConfig:(nonnull RudderConfig *)rudderConfig {
-    [RudderLogger logDebug:@"Creating RudderIntegrationFactory"];
+- (nonnull id<RSIntegration>)initiate:(nonnull NSDictionary *)config client:(nonnull RSClient *)client rudderConfig:(nonnull RSConfig *)rudderConfig {
+    [RSLogger logDebug:@"Creating RudderIntegrationFactory"];
     return [[RudderAppsflyerIntegration alloc] initWithConfig:config withAnalytics:client withRudderConfig:rudderConfig];
 }
 
