@@ -1,15 +1,15 @@
 # What is Rudder?
 
-**Short answer:** 
+**Short answer:**
 Rudder is an open-source Segment alternative written in Go, built for the enterprise. .
 
-**Long answer:** 
+**Long answer:**
 Rudder is a platform for collecting, storing and routing customer event data to dozens of tools. Rudder is open-source, can run in your cloud environment (AWS, GCP, Azure or even your data-centre) and provides a powerful transformation framework to process your event data on the fly.
 
 Released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Getting Started with Appsflyer Integration of iOS SDK
-1. Add [Appsflyer](https://www.appsflyer.com) as a destination in the [Dashboard](https://app.rudderlabs.com/) and provide ```devKey``` and `appleAppId` from your iTunes profile.
+1. Add [Appsflyer](https://www.appsflyer.com) as a destination in the [Dashboard](https://app.rudderstack.com/) and provide ```devKey``` and `appleAppId` from your iTunes profile.
 
 2. Rudder-Appsflyer is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
@@ -22,10 +22,7 @@ Put this code in your ```AppDelegate.m``` file under the method ```didFinishLaun
 ```
 RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
 [builder withDataPlaneUrl:DATA_PLANE_URL];
-[builder withTrackLifecycleEvens:YES];
-[builder withRecordScreenViews:YES];
 [builder withFactory:[RudderAppsflyerFactory instance]];
-[builder withLoglevel:RSLogLevelDebug];
 [RSClient getInstance:WRITE_KEY config:[builder build]];
 ```
 
