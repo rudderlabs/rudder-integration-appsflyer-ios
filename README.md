@@ -17,7 +17,7 @@ Released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 pod 'Rudder-Appsflyer'
 ```
 
-## Initialize ```RudderClient```
+## Initialize ```RSClient```
 Put this code in your ```AppDelegate.m``` file under the method ```didFinishLaunchingWithOptions```
 ```
 RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
