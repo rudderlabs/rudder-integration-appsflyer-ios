@@ -18,15 +18,15 @@
         NSString *appleAppId = [config objectForKey:@"appleAppId"];
         
         if (devKey != nil) {
-            _afTracker = [AppsFlyerTracker sharedTracker];
+            _afLib = [AppsFlyerLib shared];
             
-            [_afTracker setAppsFlyerDevKey:devKey];
-            [_afTracker setAppleAppID:appleAppId];
+            [_afLib setAppsFlyerDevKey:devKey];
+            [_afLib setAppleAppID:appleAppId];
             
             if (rudderConfig.logLevel >= RSLogLevelDebug) {
-                _afTracker.isDebug = YES;
+                _afLib.isDebug = YES;
             } else {
-                _afTracker.isDebug = NO;
+                _afLib.isDebug = NO;
             }
         }
     }
@@ -44,14 +44,14 @@
     NSString *type = message.type;
     if ([type isEqualToString:@"identify"]) {
         if ([NSThread isMainThread]) {
-            [_afTracker setCustomerUserID:message.userId];
+            [_afLib setCustomerUserID:message.userId];
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.afTracker setCustomerUserID:message.userId];
+                [self.afLib setCustomerUserID:message.userId];
             });
         }
         if ([message.context.traits[@"currencyCode"] isKindOfClass:[NSString class]]) {
-            _afTracker.currencyCode = [[NSString alloc] initWithFormat:@"%@", message.context.traits[@"currencyCode"]];
+            _afLib.currencyCode = [[NSString alloc] initWithFormat:@"%@", message.context.traits[@"currencyCode"]];
         }
         
         NSMutableDictionary *afTraits = [[NSMutableDictionary alloc] init];
@@ -71,7 +71,7 @@
             [afTraits setObject:message.context.traits[@"username"] forKey:@"username"];
         }
         
-        [_afTracker setAdditionalData:afTraits];
+        [_afLib setAdditionalData:afTraits];
     } else if ([type isEqualToString:@"track"]) {
         NSString *eventName = message.event;
         if (eventName != nil) {
@@ -115,10 +115,10 @@
                     }
                 }
             }
-            [_afTracker trackEvent:afEventName withValues:afProperties];
+            [_afLib logEvent:afEventName withValues:afProperties];
         }
     } else if ([type isEqualToString:@"screen"]) {
-        [_afTracker trackEvent:@"screen" withValues:message.properties];
+        [_afLib logEvent:@"screen" withValues:message.properties];
     }
 }
 
