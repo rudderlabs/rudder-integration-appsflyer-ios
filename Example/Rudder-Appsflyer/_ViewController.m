@@ -8,7 +8,7 @@
 
 #import "_ViewController.h"
 #import <Rudder/Rudder.h>
-#import <AppsFlyerLib/AppsFlyerTracker.h>
+#import <AppsFlyerLib/AppsFlyerLib.h>
 
 @interface _ViewController ()
 
@@ -28,7 +28,7 @@
     [[RSClient sharedInstance] track:@"challenge: applied points" properties:@{@"key":@"value", @"foo": @"bar", @"c_prop": @{@"c_key_1": @"c_val_1"}}];
     [[RSClient sharedInstance] track:@"congratulated" properties:@{@"total":@2.99, @"currency": @"USD"}];
     
-    NSString *appsFlyerId = [[AppsFlyerTracker sharedTracker] getAppsFlyerUID];
+    NSString *appsFlyerId = [[AppsFlyerLib shared] getAppsFlyerUID];
     
 }
 
