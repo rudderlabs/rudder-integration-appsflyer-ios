@@ -1,12 +1,10 @@
-# What is Rudder?
+# What is RudderStack?
 
-**Short answer:**
-Rudder is an open-source Segment alternative written in Go, built for the enterprise. .
+**Short answer:** 
+RudderStack is an open-source Segment alternative written in Go, built for the enterprise. .
 
-**Long answer:**
-Rudder is a platform for collecting, storing and routing customer event data to dozens of tools. Rudder is open-source, can run in your cloud environment (AWS, GCP, Azure or even your data-centre) and provides a powerful transformation framework to process your event data on the fly.
-
-Released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+**Long answer:** 
+RudderStack is a platform for collecting, storing and routing customer event data to dozens of tools. Rudder is open-source, can run in your cloud environment (AWS, GCP, Azure or even your data-centre) and provides a powerful transformation framework to process your event data on the fly.
 
 ## Getting Started with Appsflyer Integration of iOS SDK
 1. Add [Appsflyer](https://www.appsflyer.com) as a destination in the [Dashboard](https://app.rudderstack.com/) and provide ```devKey``` and `appleAppId` from your iTunes profile.
@@ -27,7 +25,7 @@ RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
 ```
 
 ## Send Events
-Follow the steps from [Rudder iOS SDK](https://github.com/rudderlabs/rudder-sdk-ios)
+Follow the steps from [RudderStack iOS SDK](https://github.com/rudderlabs/rudder-sdk-ios)
 
 ## Contact Us
-If you come across any issues while configuring or using RudderStack, please feel free to [contact us](https://rudderstack.com/contact/) or start a conversation on our [Discord](https://discordapp.com/invite/xNEdEGw) channel. We will be happy to help you.
+If you come across any issues while configuring or using RudderStack, please feel free to [contact us](https://rudderstack.com/contact/) or start a conversation on our [Slack](https://github.com/rudderlabs/rudder-integration-braze-ios/pull/4) channel. We will be happy to help you.
