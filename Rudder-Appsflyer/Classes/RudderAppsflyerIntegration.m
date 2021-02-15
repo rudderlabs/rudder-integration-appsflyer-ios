@@ -161,6 +161,11 @@
             [params setValue:orderId forKey:AFEventParamReceiptId];
             [params setValue:orderId forKey:@"af_order_id"];
         }
+        
+        NSString *revenue = properties[@"revenue"];
+        if (revenue != nil) {
+            [params setValue:revenue forKey:AFEventParamRevenue];
+        }
     }
 }
  
