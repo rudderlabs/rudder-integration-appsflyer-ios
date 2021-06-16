@@ -29,6 +29,8 @@
                 _afLib.isDebug = NO;
             }
         }
+        
+        [_afLib start];
     }
     [RSLogger logDebug:@"Initializing Appsflyer SDK"];
     return self;

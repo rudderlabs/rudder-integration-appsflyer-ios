@@ -11,7 +11,7 @@
 #import "RudderAppsflyerFactory.h"
 
 static NSString *DATA_PLANE_URL = @"https://a48885dd.ngrok.io";
-static NSString *WRITE_KEY = @"1dSjTVIC7OhzFBZ74DVlP9KZ9Pp";
+static NSString *WRITE_KEY = @"1pAKRv50y15Ti6UWpYroGJaO0Dj";
 
 @implementation _AppDelegate
 
