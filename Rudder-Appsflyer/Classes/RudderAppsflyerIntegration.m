@@ -16,6 +16,7 @@
     if (self) {
         NSString *devKey = [config objectForKey:@"devKey"];
         NSString *appleAppId = [config objectForKey:@"appleAppId"];
+        _includeScreen = [config objectForKey:@"includeScreenOrPageName"];
         
         if (devKey != nil) {
             _afLib = [AppsFlyerLib shared];
@@ -120,7 +121,14 @@
             [_afLib logEvent:afEventName withValues:afProperties];
         }
     } else if ([type isEqualToString:@"screen"]) {
-        [_afLib logEvent:@"screen" withValues:message.properties];
+        NSString *screenName;
+        if (self.includeScreen) {
+            screenName = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", message.event];
+        }
+        else {
+            screenName = @"screen";
+        }
+        [_afLib logEvent:screenName withValues:message.properties];
     }
 }
 
@@ -226,6 +234,11 @@
 - (void)reset {
     // Appsflyer doesn't support reset functionality
 }
+
+- (void)flush {
+    // Appsflyer doesn't support flush functionality
+}
+
 
 @end
 
