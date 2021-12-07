@@ -16,7 +16,7 @@
     if (self) {
         NSString *devKey = [config objectForKey:@"devKey"];
         NSString *appleAppId = [config objectForKey:@"appleAppId"];
-        _isNewScreenEnabled = [config objectForKey:@"useRichEventName"];
+        _isNewScreenEnabled = [[config objectForKey:@"useRichEventName"] boolValue];
         
         if (devKey != nil) {
             _afLib = [AppsFlyerLib shared];
