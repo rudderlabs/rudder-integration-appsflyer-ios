@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RudderAppsflyerIntegration : NSObject<RSIntegration>
 
 @property (nonatomic, strong) AppsFlyerLib *afLib;
-@property (nonatomic) BOOL includeScreen;
+@property (nonatomic) BOOL isNewScreenEnabled;
 
 - (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(RSClient *)client withRudderConfig:(RSConfig*) rudderConfig;
 

@@ -16,7 +16,7 @@
     if (self) {
         NSString *devKey = [config objectForKey:@"devKey"];
         NSString *appleAppId = [config objectForKey:@"appleAppId"];
-        _includeScreen = [config objectForKey:@"includeScreenOrPageName"];
+        _isNewScreenEnabled = [config objectForKey:@"useRichEventName"];
         
         if (devKey != nil) {
             _afLib = [AppsFlyerLib shared];
@@ -122,7 +122,7 @@
         }
     } else if ([type isEqualToString:@"screen"]) {
         NSString *screenName;
-        if (self.includeScreen) {
+        if (self.isNewScreenEnabled) {
             screenName = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", message.event];
         }
         else {
