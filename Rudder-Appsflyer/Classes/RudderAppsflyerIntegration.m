@@ -16,22 +16,22 @@
     if (self) {
         NSString *devKey = [config objectForKey:@"devKey"];
         NSString *appleAppId = [config objectForKey:@"appleAppId"];
-        _isNewScreenEnabled = [[config objectForKey:@"useRichEventName"] boolValue];
+        isNewScreenEnabled = [[config objectForKey:@"useRichEventName"] boolValue];
         
         if (devKey != nil) {
-            _afLib = [AppsFlyerLib shared];
+            afLib = [AppsFlyerLib shared];
             
-            [_afLib setAppsFlyerDevKey:devKey];
-            [_afLib setAppleAppID:appleAppId];
+            [afLib setAppsFlyerDevKey:devKey];
+            [afLib setAppleAppID:appleAppId];
             
             if (rudderConfig.logLevel >= RSLogLevelDebug) {
-                _afLib.isDebug = YES;
+                afLib.isDebug = YES;
             } else {
-                _afLib.isDebug = NO;
+                afLib.isDebug = NO;
             }
         }
         
-        [_afLib start];
+        [afLib start];
     }
     [RSLogger logDebug:@"Initializing Appsflyer SDK"];
     return self;
@@ -47,14 +47,14 @@
     NSString *type = message.type;
     if ([type isEqualToString:@"identify"]) {
         if ([NSThread isMainThread]) {
-            [_afLib setCustomerUserID:message.userId];
+            [afLib setCustomerUserID:message.userId];
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.afLib setCustomerUserID:message.userId];
+                [self->afLib setCustomerUserID:message.userId];
             });
         }
         if ([message.context.traits[@"currencyCode"] isKindOfClass:[NSString class]]) {
-            _afLib.currencyCode = [[NSString alloc] initWithFormat:@"%@", message.context.traits[@"currencyCode"]];
+            afLib.currencyCode = [[NSString alloc] initWithFormat:@"%@", message.context.traits[@"currencyCode"]];
         }
         
         NSMutableDictionary *afTraits = [[NSMutableDictionary alloc] init];
@@ -74,7 +74,7 @@
             [afTraits setObject:message.context.traits[@"username"] forKey:@"username"];
         }
         
-        [_afLib setAdditionalData:afTraits];
+        [afLib setAdditionalData:afTraits];
     } else if ([type isEqualToString:@"track"]) {
         NSString *eventName = message.event;
         if (eventName != nil) {
@@ -118,17 +118,17 @@
                     }
                 }
             }
-            [_afLib logEvent:afEventName withValues:afProperties];
+            [afLib logEvent:afEventName withValues:afProperties];
         }
     } else if ([type isEqualToString:@"screen"]) {
         NSString *screenName;
-        if (self.isNewScreenEnabled) {
+        if (self->isNewScreenEnabled) {
             screenName = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", message.event];
         }
         else {
             screenName = @"screen";
         }
-        [_afLib logEvent:screenName withValues:message.properties];
+        [afLib logEvent:screenName withValues:message.properties];
     }
 }
 
