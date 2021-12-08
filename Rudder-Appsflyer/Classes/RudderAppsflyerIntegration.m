@@ -6,6 +6,7 @@
 //
 
 #import "RudderAppsflyerIntegration.h"
+#import <AppsFlyerLib/AppsFlyerLib.h>
 
 @implementation RudderAppsflyerIntegration
 
@@ -16,21 +17,20 @@
     if (self) {
         NSString *devKey = [config objectForKey:@"devKey"];
         NSString *appleAppId = [config objectForKey:@"appleAppId"];
+        isNewScreenEnabled = [[config objectForKey:@"useRichEventName"] boolValue];
         
         if (devKey != nil) {
-            _afLib = [AppsFlyerLib shared];
-            
-            [_afLib setAppsFlyerDevKey:devKey];
-            [_afLib setAppleAppID:appleAppId];
+            [[AppsFlyerLib shared] setAppsFlyerDevKey:devKey];
+            [[AppsFlyerLib shared] setAppleAppID:appleAppId];
             
             if (rudderConfig.logLevel >= RSLogLevelDebug) {
-                _afLib.isDebug = YES;
+                [AppsFlyerLib shared].isDebug = YES;
             } else {
-                _afLib.isDebug = NO;
+                [AppsFlyerLib shared].isDebug = NO;
             }
         }
         
-        [_afLib start];
+        [[AppsFlyerLib shared] start];
     }
     [RSLogger logDebug:@"Initializing Appsflyer SDK"];
     return self;
@@ -46,14 +46,14 @@
     NSString *type = message.type;
     if ([type isEqualToString:@"identify"]) {
         if ([NSThread isMainThread]) {
-            [_afLib setCustomerUserID:message.userId];
+            [[AppsFlyerLib shared] setCustomerUserID:message.userId];
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.afLib setCustomerUserID:message.userId];
+                [[AppsFlyerLib shared] setCustomerUserID:message.userId];
             });
         }
         if ([message.context.traits[@"currencyCode"] isKindOfClass:[NSString class]]) {
-            _afLib.currencyCode = [[NSString alloc] initWithFormat:@"%@", message.context.traits[@"currencyCode"]];
+            [AppsFlyerLib shared].currencyCode = [[NSString alloc] initWithFormat:@"%@", message.context.traits[@"currencyCode"]];
         }
         
         NSMutableDictionary *afTraits = [[NSMutableDictionary alloc] init];
@@ -73,7 +73,7 @@
             [afTraits setObject:message.context.traits[@"username"] forKey:@"username"];
         }
         
-        [_afLib setAdditionalData:afTraits];
+        [[AppsFlyerLib shared] setAdditionalData:afTraits];
     } else if ([type isEqualToString:@"track"]) {
         NSString *eventName = message.event;
         if (eventName != nil) {
@@ -117,10 +117,25 @@
                     }
                 }
             }
-            [_afLib logEvent:afEventName withValues:afProperties];
+            [[AppsFlyerLib shared] logEvent:afEventName withValues:afProperties];
         }
     } else if ([type isEqualToString:@"screen"]) {
-        [_afLib logEvent:@"screen" withValues:message.properties];
+        NSString *screenName;
+        NSDictionary *properties = message.properties;
+        if (self->isNewScreenEnabled) {
+            if ([message.event length]) {
+                screenName = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", message.event];
+            } else if (properties != NULL && [[properties objectForKey:@"name"] length]) {
+                screenName = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", [properties objectForKey:@"name"]];
+            }
+            else {
+                screenName = @"Viewed Screen";
+            }
+        }
+        else {
+            screenName = @"screen";
+        }
+        [[AppsFlyerLib shared] logEvent:screenName withValues:properties];
     }
 }
 
@@ -226,6 +241,11 @@
 - (void)reset {
     // Appsflyer doesn't support reset functionality
 }
+
+- (void)flush {
+    // Appsflyer doesn't support flush functionality
+}
+
 
 @end
 
