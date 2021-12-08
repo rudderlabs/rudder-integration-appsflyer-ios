@@ -122,13 +122,21 @@
         }
     } else if ([type isEqualToString:@"screen"]) {
         NSString *screenName;
+        NSDictionary *properties = message.properties;
         if (self->isNewScreenEnabled) {
-            screenName = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", message.event];
+            if ([message.event length]) {
+                screenName = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", message.event];
+            } else if (properties != NULL && [[properties objectForKey:@"name"] length]) {
+                screenName = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", [properties objectForKey:@"name"]];
+            }
+            else {
+                screenName = @"Viewed Screen";
+            }
         }
         else {
             screenName = @"screen";
         }
-        [afLib logEvent:screenName withValues:message.properties];
+        [afLib logEvent:screenName withValues:properties];
     }
 }
 
