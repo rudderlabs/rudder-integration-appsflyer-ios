@@ -7,13 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import <Rudder/Rudder.h>
-#import <AppsFlyerLib/AppsFlyerLib.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RudderAppsflyerIntegration : NSObject<RSIntegration> {
     BOOL isNewScreenEnabled;
-    AppsFlyerLib *afLib;
 }
 
 

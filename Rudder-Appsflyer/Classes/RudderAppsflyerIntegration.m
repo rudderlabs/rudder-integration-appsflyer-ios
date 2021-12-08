@@ -6,6 +6,7 @@
 //
 
 #import "RudderAppsflyerIntegration.h"
+#import <AppsFlyerLib/AppsFlyerLib.h>
 
 @implementation RudderAppsflyerIntegration
 
@@ -19,19 +20,17 @@
         isNewScreenEnabled = [[config objectForKey:@"useRichEventName"] boolValue];
         
         if (devKey != nil) {
-            afLib = [AppsFlyerLib shared];
-            
-            [afLib setAppsFlyerDevKey:devKey];
-            [afLib setAppleAppID:appleAppId];
+            [[AppsFlyerLib shared] setAppsFlyerDevKey:devKey];
+            [[AppsFlyerLib shared] setAppleAppID:appleAppId];
             
             if (rudderConfig.logLevel >= RSLogLevelDebug) {
-                afLib.isDebug = YES;
+                [AppsFlyerLib shared].isDebug = YES;
             } else {
-                afLib.isDebug = NO;
+                [AppsFlyerLib shared].isDebug = NO;
             }
         }
         
-        [afLib start];
+        [[AppsFlyerLib shared] start];
     }
     [RSLogger logDebug:@"Initializing Appsflyer SDK"];
     return self;
@@ -47,14 +46,14 @@
     NSString *type = message.type;
     if ([type isEqualToString:@"identify"]) {
         if ([NSThread isMainThread]) {
-            [afLib setCustomerUserID:message.userId];
+            [[AppsFlyerLib shared] setCustomerUserID:message.userId];
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self->afLib setCustomerUserID:message.userId];
+                [[AppsFlyerLib shared] setCustomerUserID:message.userId];
             });
         }
         if ([message.context.traits[@"currencyCode"] isKindOfClass:[NSString class]]) {
-            afLib.currencyCode = [[NSString alloc] initWithFormat:@"%@", message.context.traits[@"currencyCode"]];
+            [AppsFlyerLib shared].currencyCode = [[NSString alloc] initWithFormat:@"%@", message.context.traits[@"currencyCode"]];
         }
         
         NSMutableDictionary *afTraits = [[NSMutableDictionary alloc] init];
@@ -74,7 +73,7 @@
             [afTraits setObject:message.context.traits[@"username"] forKey:@"username"];
         }
         
-        [afLib setAdditionalData:afTraits];
+        [[AppsFlyerLib shared] setAdditionalData:afTraits];
     } else if ([type isEqualToString:@"track"]) {
         NSString *eventName = message.event;
         if (eventName != nil) {
@@ -118,7 +117,7 @@
                     }
                 }
             }
-            [afLib logEvent:afEventName withValues:afProperties];
+            [[AppsFlyerLib shared] logEvent:afEventName withValues:afProperties];
         }
     } else if ([type isEqualToString:@"screen"]) {
         NSString *screenName;
@@ -136,7 +135,7 @@
         else {
             screenName = @"screen";
         }
-        [afLib logEvent:screenName withValues:properties];
+        [[AppsFlyerLib shared] logEvent:screenName withValues:properties];
     }
 }
 
