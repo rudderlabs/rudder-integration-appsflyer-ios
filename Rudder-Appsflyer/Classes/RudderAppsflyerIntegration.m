@@ -45,13 +45,8 @@
 - (void) processRudderEvent: (nonnull RSMessage *) message {
     NSString *type = message.type;
     if ([type isEqualToString:@"identify"]) {
-        if ([NSThread isMainThread]) {
-            [[AppsFlyerLib shared] setCustomerUserID:message.userId];
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[AppsFlyerLib shared] setCustomerUserID:message.userId];
-            });
-        }
+       [[AppsFlyerLib shared] setCustomerUserID:message.userId];
+        
         if ([message.context.traits[@"currencyCode"] isKindOfClass:[NSString class]]) {
             [AppsFlyerLib shared].currencyCode = [[NSString alloc] initWithFormat:@"%@", message.context.traits[@"currencyCode"]];
         }
