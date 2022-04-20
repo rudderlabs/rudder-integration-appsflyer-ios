@@ -10,6 +10,8 @@
 
 @implementation RudderAppsflyerIntegration
 
+NSString *const FIRSTPURCHASE = @"first_purchase";
+
 #pragma mark - Initialization
 
 - (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(nonnull RSClient *)client  withRudderConfig:(nonnull RSConfig *)rudderConfig {
@@ -96,7 +98,7 @@
             } else if ([eventName isEqualToString:ECommCheckoutStarted]){
                 afEventName = AFEventInitiatedCheckout;
                 [self addCheckoutProperties:properties params:afProperties];
-            } else if ([eventName isEqualToString:ECommOrderCompleted]) {
+            } else if ([eventName isEqualToString:FIRSTPURCHASE]) {
                 afEventName = AFEventPurchase;
                 [self addCheckoutProperties:properties params:afProperties];
             } else if ([eventName isEqualToString:ECommProductRemoved]) {
