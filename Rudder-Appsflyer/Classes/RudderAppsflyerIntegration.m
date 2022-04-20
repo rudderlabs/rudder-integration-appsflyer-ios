@@ -98,10 +98,14 @@ NSString *const FIRSTPURCHASE = @"first_purchase";
             } else if ([eventName isEqualToString:ECommCheckoutStarted]){
                 afEventName = AFEventInitiatedCheckout;
                 [self addCheckoutProperties:properties params:afProperties];
-            } else if ([eventName isEqualToString:FIRSTPURCHASE]) {
+            } else if ([eventName isEqualToString:ECommOrderCompleted]) {
                 afEventName = AFEventPurchase;
                 [self addCheckoutProperties:properties params:afProperties];
-            } else if ([eventName isEqualToString:ECommProductRemoved]) {
+            } else if ([eventName isEqualToString:FIRSTPURCHASE]) {
+                afEventName = FIRSTPURCHASE;
+                [self addCheckoutProperties:properties params:afProperties];
+            }
+            else if ([eventName isEqualToString:ECommProductRemoved]) {
                 afEventName = @"remove_from_cart";
                 if (properties != nil) {
                     NSString *productId = properties[@"product_id"];
