@@ -4,13 +4,13 @@
 //
 //  Created by arnabp92 on 02/21/2020.
 //  Copyright (c) 2020 arnabp92. All rights reserved.
-//
+//s
 
 #import "_AppDelegate.h"
 #import <Rudder/Rudder.h>
 #import "RudderAppsflyerFactory.h"
 
-static NSString *DATA_PLANE_URL = @"https://a48885dd.ngrok.io";
+static NSString *DATA_PLANE_URL = @"https://6fce-2405-201-c001-18cd-f190-b1cc-2af3-7028.ngrok.io";
 static NSString *WRITE_KEY = @"1pAKRv50y15Ti6UWpYroGJaO0Dj";
 
 @implementation _AppDelegate
@@ -25,6 +25,72 @@ static NSString *WRITE_KEY = @"1pAKRv50y15Ti6UWpYroGJaO0Dj";
     [builder withFactory:[RudderAppsflyerFactory instance]];
     [builder withLoglevel:RSLogLevelDebug];
     [RSClient getInstance:WRITE_KEY config:[builder build]];
+    
+    [[RSClient sharedInstance] track:@"Order Completed" properties:@{
+    @"checkout_id": @"12345",
+    @"order_id": @"1234",
+    @"affiliation": @"Apple Store",
+    @"total": @20,
+    @"revenue": @15.0,
+    @"shipping": @22,
+    @"tax": @1,
+    @"discount": @1.5,
+    @"coupon": @"ImagePro",
+    @"currency": @"USD",
+    @"products": @[
+      @{
+        @"product_id": @"123",
+        @"sku": @"G-32",
+        @"name": @"Monopoly",
+        @"price": @14,
+        @"quantity": @1,
+        @"category": @"Games",
+        @"url": @"https://www.website.com/product/path",
+        @"image_url": @"https://www.website.com/product/path.jpg",
+      },
+      @{
+        @"product_id": @"345",
+        @"sku": @"F-32",
+        @"name": @"UNO",
+        @"price": @3.45,
+        @"quantity": @2,
+        @"category": @"Games",
+      },
+    ],
+  }];
+    
+    [[RSClient sharedInstance] track:@"first_purchase" properties:@{
+    @"checkout_id": @"12345",
+    @"order_id": @"1234",
+    @"affiliation": @"Apple Store",
+    @"total": @20,
+    @"revenue": @15.0,
+    @"shipping": @22,
+    @"tax": @1,
+    @"discount": @1.5,
+    @"coupon": @"ImagePro",
+    @"currency": @"USD",
+    @"products": @[
+      @{
+        @"product_id": @"123",
+        @"sku": @"G-32",
+        @"name": @"Monopoly",
+        @"price": @14,
+        @"quantity": @1,
+        @"category": @"Games",
+        @"url": @"https://www.website.com/product/path",
+        @"image_url": @"https://www.website.com/product/path.jpg",
+      },
+      @{
+        @"product_id": @"345",
+        @"sku": @"F-32",
+        @"name": @"UNO",
+        @"price": @3.45,
+        @"quantity": @2,
+        @"category": @"Games",
+      },
+    ],
+  }];
     
     return YES;
 }
