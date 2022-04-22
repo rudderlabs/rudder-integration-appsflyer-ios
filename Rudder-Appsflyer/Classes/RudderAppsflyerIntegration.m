@@ -17,24 +17,8 @@ NSString *const FIRSTPURCHASE = @"first_purchase";
 - (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(nonnull RSClient *)client  withRudderConfig:(nonnull RSConfig *)rudderConfig {
     self = [super init];
     if (self) {
-        NSString *devKey = [config objectForKey:@"devKey"];
-        NSString *appleAppId = [config objectForKey:@"appleAppId"];
         isNewScreenEnabled = [[config objectForKey:@"useRichEventName"] boolValue];
-        
-        if (devKey != nil) {
-            [[AppsFlyerLib shared] setAppsFlyerDevKey:devKey];
-            [[AppsFlyerLib shared] setAppleAppID:appleAppId];
-            
-            if (rudderConfig.logLevel >= RSLogLevelDebug) {
-                [AppsFlyerLib shared].isDebug = YES;
-            } else {
-                [AppsFlyerLib shared].isDebug = NO;
-            }
-        }
-        
-        [[AppsFlyerLib shared] start];
     }
-    [RSLogger logDebug:@"Initializing Appsflyer SDK"];
     return self;
 }
 
