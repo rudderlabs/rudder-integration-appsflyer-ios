@@ -14,6 +14,17 @@ More information on RudderStack can be found [here](https://github.com/rudderlab
 pod 'Rudder-Appsflyer'
 ```
 
+3. Initialize the `Appsflyer` SDK before initializing the Rudder SDK as shown below:
+
+```
+#import <AppsFlyerLib/AppsFlyerLib.h>
+
+[[AppsFlyerLib shared] setAppsFlyerDevKey:<devKey>];
+[[AppsFlyerLib shared] setAppleAppID:<appleAppId>];
+[AppsFlyerLib shared].isDebug = YES;
+[[AppsFlyerLib shared] start];
+```
+
 ## Initialize ```RSClient```
 
 Put this code in your ```AppDelegate.m``` file under the method ```didFinishLaunchingWithOptions```
