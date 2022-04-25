@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Rudder-Appsflyer'
-  s.version          = '1.1.0'
+  s.version          = '2.0.0'
   s.summary          = 'Privacy and Security focused Segment-alternative. Appsflyer Native SDK integration support.'
 
   s.description      = <<-DESC
@@ -10,7 +10,7 @@ Rudder is a platform for collecting, storing and routing customer event data to 
   s.homepage         = 'https://github.com/rudderlabs/rudder-integration-appsflyer-ios'
   s.license          = { :type => "Apache", :file => "LICENSE" }
   s.author           = { 'RudderStack' => 'arnab@rudderlabs.com' }
-  s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-appsflyer-ios.git', :tag => 'v1.1.0'}
+  s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-appsflyer-ios.git', :tag => 'v2.0.0'}
   s.platform         = :ios, "9.0"
 
   s.ios.deployment_target = '10.0'
