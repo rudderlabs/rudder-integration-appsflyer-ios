@@ -8,8 +8,8 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - Rudder (1.2.1)
-  - Rudder-Appsflyer (1.0.4):
-    - AppsFlyerFramework (= 6.4.3)
+  - Rudder-Appsflyer (2.0.0):
+    - AppsFlyerFramework (~> 6.4.3)
     - Rudder (~> 1.0)
 
 DEPENDENCIES:
@@ -30,8 +30,8 @@ SPEC CHECKSUMS:
   AppsFlyerFramework: ce218e29f57ea92e461ca1b6f418148a1be2e0dc
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Rudder: db8cfa8e5757599dfec74a1bdd04dc17b3859789
-  Rudder-Appsflyer: e070a12a5ff094b922a513b21a0f8a185f948ef9
+  Rudder-Appsflyer: c60efa0d7711d0d09a49a3733f11551ee38800cc
 
 PODFILE CHECKSUM: c83c5f5286f9b840b966f5e22ef98b97471c62d5
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
