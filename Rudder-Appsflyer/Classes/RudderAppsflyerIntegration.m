@@ -102,6 +102,9 @@ NSString *const FIRSTPURCHASE = @"first_purchase";
                     }
                 }
             }
+            else {
+                afEventName = [afEventName stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+            }
             [[AppsFlyerLib shared] logEvent:afEventName withValues:afProperties];
         }
     } else if ([type isEqualToString:@"screen"]) {
