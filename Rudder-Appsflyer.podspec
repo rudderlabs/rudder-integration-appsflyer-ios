@@ -30,5 +30,5 @@ Rudder is a platform for collecting, storing and routing customer event data to 
   s.source_files = 'Rudder-Appsflyer/Classes/**/*'
 
   s.dependency 'Rudder', '~> 1.0'
-  s.dependency 'AppsFlyerFramework', '~> 6.4.3'
+  s.dependency 'AppsFlyerFramework', '~> 6.9.1'
 end
