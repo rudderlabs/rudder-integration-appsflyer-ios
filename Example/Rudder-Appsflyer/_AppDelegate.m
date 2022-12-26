@@ -9,6 +9,7 @@
 #import "_AppDelegate.h"
 #import <Rudder/Rudder.h>
 #import "RudderAppsflyerFactory.h"
+#import <AppsFlyerLib/AppsFlyerLib.h>
 
 static NSString *DATA_PLANE_URL = @"https://6fce-2405-201-c001-18cd-f190-b1cc-2af3-7028.ngrok.io";
 static NSString *WRITE_KEY = @"1pAKRv50y15Ti6UWpYroGJaO0Dj";
@@ -18,6 +19,14 @@ static NSString *WRITE_KEY = @"1pAKRv50y15Ti6UWpYroGJaO0Dj";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    // First Initialize the Appsflyer iOS SDK
+    [[AppsFlyerLib shared] setAppsFlyerDevKey:@"<devKey>"];
+    [[AppsFlyerLib shared] setAppleAppID:@"<appleAppId"];
+    [AppsFlyerLib shared].isDebug = YES;
+    [[AppsFlyerLib shared] start];
+    
+    
+    // And then initialize the Rudder SDK
     RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
     [builder withDataPlaneUrl:DATA_PLANE_URL];
     [builder withTrackLifecycleEvens:YES];

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.2.0 (2022-12-22)
+
+
+### Features
+
+* updated to the latest version of appsflyer ios sdk 6.9.1 ([3518684](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/35186842184db746adcbfd33838beb6ef5fd3e11))
+
 ## 2.1.0 (2022-11-17)
 
 
