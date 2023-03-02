@@ -1,0 +1,30 @@
+name: Check outdate pod and create issue
+
+on: 
+  schedule:
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check-outdated-pods:
+    runs-on: macos-latest
+    name: Check outdate pods and create issue if it doesn't exist
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check outdated pods and create issue
+        id: check-outdated-pods-and-create-issue
+        uses: rudderlabs/github-action-updated-pods-notifier@main
+        with:
+          outdated-pod-names: "AppsFlyerFramework"
+          directory: "Example"
+          title: "fix: update AppsFlyer SDK to the latest version"
+          assignee: "desusai7"
+          labels: "outdatedPod"
+          color: "FBCA04"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get the github issue url
+        if: steps.check-outdated-pods-and-create-issue.outputs.issue-url != ''
+        run: echo "The Github issue url is ${{ steps.check-outdated-pods-and-create-issue.outputs.issue-url }}"
