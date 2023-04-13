@@ -1,25 +1,18 @@
 PODS:
-  - AppsFlyerFramework (6.9.1):
-    - AppsFlyerFramework/Main (= 6.9.1)
-  - AppsFlyerFramework/Main (6.9.1)
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - Rudder (1.8.0)
-  - Rudder-Appsflyer (2.1.0):
-    - AppsFlyerFramework (~> 6.9.1)
-    - Rudder (~> 1.0)
+  - AppsFlyerFramework (6.10.1):
+    - AppsFlyerFramework/Main (= 6.10.1)
+  - AppsFlyerFramework/Main (6.10.1)
+  - Rudder (1.13.0)
+  - Rudder-Appsflyer (2.2.0):
+    - AppsFlyerFramework (~> 6.10)
+    - Rudder (~> 1.12)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
   - Rudder-Appsflyer (from `../`)
 
 SPEC REPOS:
   trunk:
     - AppsFlyerFramework
-    - FBSnapshotTestCase
     - Rudder
 
 EXTERNAL SOURCES:
@@ -27,11 +20,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AppsFlyerFramework: dc9aa675faa8e1a2ed40fb295d3c5408ee2b972a
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Rudder: 0a5272646aa3b89295526cea2bf54d092044848a
-  Rudder-Appsflyer: e1f26d1d24d3a9351c7079b3f9c87815680da426
+  AppsFlyerFramework: 88a6eed37ad52bcee4ad74232efa8e22809d06c9
+  Rudder: 840bf4dfd9816ce6a82cb8870f1a2d4a44ed2652
+  Rudder-Appsflyer: 94b945c1dff963d5e655719980453ccbb9c083eb
 
-PODFILE CHECKSUM: 72f0e785b3e2e2c1b9276c5aee9c1558d47208ad
+PODFILE CHECKSUM: 49c77f0049a9ff4b4e9202c3918c8ff06a57b815
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   SampleRudderConfig.plist
+   Rudder-Appsflyer
+
+   Created by Desu Sai Venkat on 13/04/23.
+   Copyright (c) 2023 arnabp92. All rights reserved.
+-->
+<plist version="1.0">
+   <dict>
+      <key>WRITE_KEY</key>
+      <string></string>
+      <key>PROD_DATA_PLANE_URL</key>
+      <string></string>
+      <key>PROD_CONTROL_PLANE_URL</key>
+      <string></string>
+      <key>LOCAL_DATA_PLANE_URL</key>
+      <string></string>
+      <key>LOCAL_CONTROL_PLANE_URL</key>
+      <string></string>
+      <key>DEV_DATA_PLANE_URL</key>
+      <string></string>
+      <key>DEV_CONTROL_PLANE_URL</key>
+      <string></string>
+   </dict>
+</plist>

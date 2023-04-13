@@ -2,6 +2,9 @@ require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
+appsflyer_sdk_version = '~> 6.10'
+rudder_sdk_version = '~> 1.12'
+
 Pod::Spec.new do |s|
   s.name             = 'Rudder-Appsflyer'
   s.version          = package['version']
@@ -12,23 +15,32 @@ Rudder is a platform for collecting, storing and routing customer event data to 
                        DESC
 
   s.homepage         = 'https://github.com/rudderlabs/rudder-integration-appsflyer-ios'
-  s.license          = { :type => "Apache", :file => "LICENSE" }
-  s.author           = { 'RudderStack' => 'arnab@rudderlabs.com' }
+  s.license          = { :type => "Apache", :file => "LICENSE.md" }
+  s.author           = { 'RudderStack' => 'sdk@rudderstack.com' }
   s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-appsflyer-ios.git', :tag => "v#{s.version}" }
   s.platform         = :ios, "9.0"
 
   s.ios.deployment_target = '10.0'
 
-  ## Ref: https://github.com/CocoaPods/CocoaPods/issues/10065
-  s.pod_target_xcconfig = {
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
-  }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-
   s.static_framework = true
 
   s.source_files = 'Rudder-Appsflyer/Classes/**/*'
 
-  s.dependency 'Rudder', '~> 1.0'
-  s.dependency 'AppsFlyerFramework', '~> 6.9.1'
+  if defined?($AppsflyerSDKVersion)
+    Pod::UI.puts "#{s.name}: Using user specified Appsflyer SDK version '#{$AppsflyerSDKVersion}'"
+    appsflyer_sdk_version = $AppsflyerSDKVersion
+  else
+    Pod::UI.puts "#{s.name}: Using default Appsflyer SDK version '#{appsflyer_sdk_version}'"
+  end
+
+  if defined?($RudderSDKVersion)
+    Pod::UI.puts "#{s.name}: Using user specified Rudder SDK version '#{$RudderSDKVersion}'"
+    rudder_sdk_version = $RudderSDKVersion
+  else
+    Pod::UI.puts "#{s.name}: Using default Rudder SDK version '#{rudder_sdk_version}'"
+  end
+
+
+  s.dependency 'Rudder', rudder_sdk_version
+  s.dependency 'AppsFlyerFramework', appsflyer_sdk_version
 end
