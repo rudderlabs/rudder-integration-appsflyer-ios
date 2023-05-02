@@ -10,9 +10,8 @@
 #import <Rudder/Rudder.h>
 #import "RudderAppsflyerFactory.h"
 #import <AppsFlyerLib/AppsFlyerLib.h>
-
-static NSString *DATA_PLANE_URL = @"https://6fce-2405-201-c001-18cd-f190-b1cc-2af3-7028.ngrok.io";
-static NSString *WRITE_KEY = @"1pAKRv50y15Ti6UWpYroGJaO0Dj";
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import "Rudder_Appsflyer_Example-Swift.h"
 
 @implementation _AppDelegate
 
@@ -23,83 +22,27 @@ static NSString *WRITE_KEY = @"1pAKRv50y15Ti6UWpYroGJaO0Dj";
     [[AppsFlyerLib shared] setAppsFlyerDevKey:@"<devKey>"];
     [[AppsFlyerLib shared] setAppleAppID:@"<appleAppId"];
     [AppsFlyerLib shared].isDebug = YES;
-    [[AppsFlyerLib shared] start];
+    
+    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:30];
     
     
-    // And then initialize the Rudder SDK
-    RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
-    [builder withDataPlaneUrl:DATA_PLANE_URL];
-    [builder withTrackLifecycleEvens:YES];
-    [builder withRecordScreenViews:YES];
-    [builder withFactory:[RudderAppsflyerFactory instance]];
-    [builder withLoglevel:RSLogLevelDebug];
-    [RSClient getInstance:WRITE_KEY config:[builder build]];
+    /// Copy the `SampleRudderConfig.plist` and rename it to`RudderConfig.plist` on the same directory.
+    /// Update the values as per your need.
     
-    [[RSClient sharedInstance] track:@"Order Completed" properties:@{
-    @"checkout_id": @"12345",
-    @"order_id": @"1234",
-    @"affiliation": @"Apple Store",
-    @"total": @20,
-    @"revenue": @15.0,
-    @"shipping": @22,
-    @"tax": @1,
-    @"discount": @1.5,
-    @"coupon": @"ImagePro",
-    @"currency": @"USD",
-    @"products": @[
-      @{
-        @"product_id": @"123",
-        @"sku": @"G-32",
-        @"name": @"Monopoly",
-        @"price": @14,
-        @"quantity": @1,
-        @"category": @"Games",
-        @"url": @"https://www.website.com/product/path",
-        @"image_url": @"https://www.website.com/product/path.jpg",
-      },
-      @{
-        @"product_id": @"345",
-        @"sku": @"F-32",
-        @"name": @"UNO",
-        @"price": @3.45,
-        @"quantity": @2,
-        @"category": @"Games",
-      },
-    ],
-  }];
-    
-    [[RSClient sharedInstance] track:@"first_purchase" properties:@{
-    @"checkout_id": @"12345",
-    @"order_id": @"1234",
-    @"affiliation": @"Apple Store",
-    @"total": @20,
-    @"revenue": @15.0,
-    @"shipping": @22,
-    @"tax": @1,
-    @"discount": @1.5,
-    @"coupon": @"ImagePro",
-    @"currency": @"USD",
-    @"products": @[
-      @{
-        @"product_id": @"123",
-        @"sku": @"G-32",
-        @"name": @"Monopoly",
-        @"price": @14,
-        @"quantity": @1,
-        @"category": @"Games",
-        @"url": @"https://www.website.com/product/path",
-        @"image_url": @"https://www.website.com/product/path.jpg",
-      },
-      @{
-        @"product_id": @"345",
-        @"sku": @"F-32",
-        @"name": @"UNO",
-        @"price": @3.45,
-        @"quantity": @2,
-        @"category": @"Games",
-      },
-    ],
-  }];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"RudderConfig" ofType:@"plist"];
+    if (path != nil) {
+        NSURL *url = [NSURL fileURLWithPath:path];
+        RudderConfig *rudderConfig = [RudderConfig createFrom:url];
+        if (rudderConfig != nil) {
+            RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
+            [builder withDataPlaneUrl:rudderConfig.PROD_DATA_PLANE_URL];
+            [builder withTrackLifecycleEvens:YES];
+            [builder withRecordScreenViews:YES];
+            [builder withFactory:[RudderAppsflyerFactory instance]];
+            [builder withLoglevel:RSLogLevelDebug];
+            [RSClient getInstance:rudderConfig.WRITE_KEY config:[builder build]];
+        }
+    }
     
     return YES;
 }
@@ -124,6 +67,13 @@ static NSString *WRITE_KEY = @"1pAKRv50y15Ti6UWpYroGJaO0Dj";
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[AppsFlyerLib shared] start];
+    
+         
+         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+           NSLog(@"Status: %lu", (unsigned long)status);
+         }];
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
