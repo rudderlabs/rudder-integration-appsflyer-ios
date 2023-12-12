@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.4.0 (2023-12-12)
+
+
+### Features
+
+* suppprt for SPM ([9463c20](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/9463c20c24b946f40f8c93039083da3aeadabcb8))
+
 ## 2.3.0 (2023-05-02)
 
 
