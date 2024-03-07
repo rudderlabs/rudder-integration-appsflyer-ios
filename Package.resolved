@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/AppsFlyerSDK/AppsFlyerFramework",
         "state": {
           "branch": null,
-          "revision": "0d8359239a349db4ac2aba8efe2ad8835fc799b5",
-          "version": "6.12.2"
+          "revision": "4591cd113ea1af6fa950479fadbce2f13bab8895",
+          "version": "6.13.1"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/rudderlabs/crash-reporter-ios",
         "state": {
           "branch": null,
-          "revision": "f8fc2f043332033aa49aed21180f3742bf05b61d",
-          "version": "1.1.0"
+          "revision": "ee563535b64d9d5feacd0fa243663b2658033a19",
+          "version": "1.0.1"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/rudderlabs/metrics-reporter-ios",
         "state": {
           "branch": null,
-          "revision": "fae035db90a966f863f34442051d2be3f3605c5a",
-          "version": "1.2.0"
+          "revision": "c5fe7cc861a83ec75978a516c02398c2a2cb1f20",
+          "version": "1.2.1"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/rudderlabs/rudder-sdk-ios",
         "state": {
           "branch": null,
-          "revision": "383a515d144c36a5e173147b26be721a5c9d39f3",
-          "version": "1.23.1"
+          "revision": "6defba00e35d5652f83fbebd0b360d722bfaab34",
+          "version": "1.25.2"
         }
       }
     ]

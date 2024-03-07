@@ -14,7 +14,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "AppsFlyerLib", url: "https://github.com/AppsFlyerSDK/AppsFlyerFramework", "6.12.2"..<"6.12.3"),
+        .package(name: "AppsFlyerLib", url: "https://github.com/AppsFlyerSDK/AppsFlyerFramework", "6.12.2"..<"7.0.0"),
         .package(name: "Rudder",url: "https://github.com/rudderlabs/rudder-sdk-ios", from: "1.0.0"),
     ],
     targets: [
