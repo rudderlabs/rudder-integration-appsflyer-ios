@@ -25,7 +25,6 @@
 		C1EC4B6E45C9733D3F6310BD /* Pods_Rudder_Appsflyer_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5779B4112B227674BEB6A0 /* Pods_Rudder_Appsflyer_Example.framework */; };
 		F63C976529E80C04008C81C5 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63C976429E80C04008C81C5 /* AppTrackingTransparency.framework */; };
 		F694A85829E7C973006F53CC /* RudderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F694A85729E7C973006F53CC /* RudderConfig.swift */; };
-		F694A85A29E7C9A7006F53CC /* RudderConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F694A85929E7C9A7006F53CC /* RudderConfig.plist */; };
 		F694A85C29E7E610006F53CC /* SampleRudderConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F694A85B29E7E610006F53CC /* SampleRudderConfig.plist */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +69,6 @@
 		F63C976429E80C04008C81C5 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		F694A85629E7C972006F53CC /* Rudder-Appsflyer_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rudder-Appsflyer_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		F694A85729E7C973006F53CC /* RudderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RudderConfig.swift; sourceTree = "<group>"; };
-		F694A85929E7C9A7006F53CC /* RudderConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RudderConfig.plist; sourceTree = "<group>"; };
 		F694A85B29E7E610006F53CC /* SampleRudderConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SampleRudderConfig.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,7 +203,6 @@
 			children = (
 				F694A85729E7C973006F53CC /* RudderConfig.swift */,
 				F694A85629E7C972006F53CC /* Rudder-Appsflyer_Example-Bridging-Header.h */,
-				F694A85929E7C9A7006F53CC /* RudderConfig.plist */,
 				F694A85B29E7E610006F53CC /* SampleRudderConfig.plist */,
 			);
 			path = RudderConfig;
@@ -297,7 +294,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
-				F694A85A29E7C9A7006F53CC /* RudderConfig.plist in Resources */,
 				F694A85C29E7E610006F53CC /* SampleRudderConfig.plist in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
