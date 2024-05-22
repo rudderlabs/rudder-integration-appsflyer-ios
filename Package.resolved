@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AppsFlyerLib",
+        "repositoryURL": "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Static",
+        "state": {
+          "branch": null,
+          "revision": "372811ca91c66fa9b235d845d647cdf8edf91304",
+          "version": "6.13.2"
+        }
+      },
+      {
+        "package": "RSCrashReporter",
+        "repositoryURL": "https://github.com/rudderlabs/crash-reporter-ios",
+        "state": {
+          "branch": null,
+          "revision": "ee563535b64d9d5feacd0fa243663b2658033a19",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "MetricsReporter",
+        "repositoryURL": "https://github.com/rudderlabs/metrics-reporter-ios",
+        "state": {
+          "branch": null,
+          "revision": "c5fe7cc861a83ec75978a516c02398c2a2cb1f20",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "RudderKit",
+        "repositoryURL": "https://github.com/rudderlabs/rudder-ios-kit",
+        "state": {
+          "branch": null,
+          "revision": "8a557a80cc1b0e0bc948c2b17fe0fd3809bcfd61",
+          "version": "1.4.0"
+        }
+      },
+      {
+        "package": "Rudder",
+        "repositoryURL": "https://github.com/rudderlabs/rudder-sdk-ios",
+        "state": {
+          "branch": null,
+          "revision": "e7f6d2ed7138598df96c23cec551d42359e80190",
+          "version": "1.26.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

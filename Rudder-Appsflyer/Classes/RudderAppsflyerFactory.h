@@ -6,7 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Rudder/RSIntegrationFactory.h>
+#if defined(__has_include) && __has_include(<Rudder/Rudder.h>)
+#import <Rudder/Rudder.h>
+#else
+#import "Rudder.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

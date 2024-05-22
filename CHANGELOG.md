@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.6.0 (2024-04-03)
+
+
+### Features
+
+* change appsflyer package repository url ([186be7a](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/186be7abdccc0c8d90add9b518db833192368b6a))
+
+## 2.5.0 (2024-03-06)
+
+
+### Features
+
+* set maximum version of AppsFlyer SDK to less than 7.0.0 in Package.swift ([0e70161](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/0e7016142ae081d0249e26e82595dfe3a306a9f5))
+
+## 2.4.0 (2023-12-12)
+
+
+### Features
+
+* suppprt for SPM ([9463c20](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/9463c20c24b946f40f8c93039083da3aeadabcb8))
+
 ## 2.3.0 (2023-05-02)
 
 
