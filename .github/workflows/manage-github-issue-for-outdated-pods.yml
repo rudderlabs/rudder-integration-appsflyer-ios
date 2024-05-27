@@ -10,7 +10,7 @@ jobs:
     runs-on: macos-latest
     name: Check outdate pods and create issue if it doesn't exist
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Check outdated pods and create issue
         id: check-outdated-pods-and-create-issue
