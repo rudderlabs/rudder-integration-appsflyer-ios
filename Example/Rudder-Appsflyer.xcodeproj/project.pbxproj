@@ -26,7 +26,6 @@
 		F63C976529E80C04008C81C5 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63C976429E80C04008C81C5 /* AppTrackingTransparency.framework */; };
 		F694A85829E7C973006F53CC /* RudderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F694A85729E7C973006F53CC /* RudderConfig.swift */; };
 		F694A85A29E7C9A7006F53CC /* RudderConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F694A85929E7C9A7006F53CC /* RudderConfig.plist */; };
-		F694A85C29E7E610006F53CC /* SampleRudderConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F694A85B29E7E610006F53CC /* SampleRudderConfig.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +70,6 @@
 		F694A85629E7C972006F53CC /* Rudder-Appsflyer_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rudder-Appsflyer_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		F694A85729E7C973006F53CC /* RudderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RudderConfig.swift; sourceTree = "<group>"; };
 		F694A85929E7C9A7006F53CC /* RudderConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RudderConfig.plist; sourceTree = "<group>"; };
-		F694A85B29E7E610006F53CC /* SampleRudderConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SampleRudderConfig.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +204,6 @@
 				F694A85729E7C973006F53CC /* RudderConfig.swift */,
 				F694A85629E7C972006F53CC /* Rudder-Appsflyer_Example-Bridging-Header.h */,
 				F694A85929E7C9A7006F53CC /* RudderConfig.plist */,
-				F694A85B29E7E610006F53CC /* SampleRudderConfig.plist */,
 			);
 			path = RudderConfig;
 			sourceTree = "<group>";
@@ -223,6 +220,7 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				C2CE48AFFF8CD4D8FB570717 /* [CP] Embed Pods Frameworks */,
+				E7E3EFA79CA45F8F78C0C159 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,7 +260,7 @@
 				ORGANIZATIONNAME = arnabp92;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = WPX9KRKA8B;
+						DevelopmentTeam = UCL2K3J73M;
 						LastSwiftMigration = 1430;
 						ProvisioningStyle = Automatic;
 					};
@@ -298,7 +296,6 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				F694A85A29E7C9A7006F53CC /* RudderConfig.plist in Resources */,
-				F694A85C29E7E610006F53CC /* SampleRudderConfig.plist in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -345,15 +342,39 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Rudder-Appsflyer_Example/Pods-Rudder-Appsflyer_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MetricsReporter/MetricsReporter.framework",
+				"${BUILT_PRODUCTS_DIR}/RSCrashReporter/RSCrashReporter.framework",
 				"${BUILT_PRODUCTS_DIR}/Rudder/Rudder.framework",
+				"${BUILT_PRODUCTS_DIR}/RudderKit/RudderKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MetricsReporter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSCrashReporter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RudderKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rudder-Appsflyer_Example/Pods-Rudder-Appsflyer_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7E3EFA79CA45F8F78C0C159 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rudder-Appsflyer_Example/Pods-Rudder-Appsflyer_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/AppsFlyerFramework/AppsFlyerLib_Privacy.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppsFlyerLib_Privacy.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rudder-Appsflyer_Example/Pods-Rudder-Appsflyer_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -500,7 +521,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WPX9KRKA8B;
+				DEVELOPMENT_TEAM = UCL2K3J73M;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rudder-Appsflyer/Rudder-Appsflyer-Prefix.pch";
 				INFOPLIST_FILE = "Rudder-Appsflyer/Rudder-Appsflyer-Info.plist";
@@ -527,7 +548,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WPX9KRKA8B;
+				DEVELOPMENT_TEAM = UCL2K3J73M;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rudder-Appsflyer/Rudder-Appsflyer-Prefix.pch";
 				INFOPLIST_FILE = "Rudder-Appsflyer/Rudder-Appsflyer-Info.plist";
