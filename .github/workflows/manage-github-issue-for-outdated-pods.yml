@@ -19,7 +19,7 @@ jobs:
           outdated-pod-names: "AppsFlyerFramework"
           directory: "Example"
           title: "fix: update AppsFlyer SDK to the latest version"
-          assignee: "desusai7"
+          assignee: "@rudderlabs/sdk-ios"
           labels: "outdatedPod"
           color: "FBCA04"
         env:
