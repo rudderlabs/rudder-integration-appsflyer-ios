@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.7.0 (2024-07-09)
+
+
+### Features
+
+* upgrade Appsflyer SDK to v6.14.5 ([#41](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/issues/41)) ([960310e](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/960310eb7ec5c6bcce1f018d70f75070ac76513d))
+* upgrade Appsflyer SDK version to v6.14.5 ([#38](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/issues/38)) ([727e3bc](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/727e3bc6d770b84d8cd10637bf2af46866e34f04))
+
 ## 2.6.0 (2024-04-03)
 
 
