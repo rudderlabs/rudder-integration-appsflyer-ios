@@ -2,7 +2,7 @@ require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
-appsflyer_sdk_version = '~> 6.14.5'
+appsflyer_sdk_version = '~> 6.12'
 rudder_sdk_version = '~> 1.12'
 
 Pod::Spec.new do |s|
@@ -20,7 +20,7 @@ Rudder is a platform for collecting, storing and routing customer event data to 
   s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-appsflyer-ios.git', :tag => "v#{s.version}" }
   s.platform         = :ios, "9.0"
 
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '10.0'
 
   s.static_framework = true
 
