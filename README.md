@@ -11,7 +11,7 @@ More information on RudderStack can be found [here](https://github.com/rudderlab
 2. Rudder-Appsflyer is available through [**CocoaPods**](https://cocoapods.org) and [**Swift Package Manager (SPM)**](https://www.swift.org/package-manager/).
 ### CocoaPods
 ```ruby
-pod 'Rudder-Appsflyer' , '~> 2.7.0'
+pod 'Rudder-Appsflyer'
 ```
 ### Swift Package Manager (SPM)
 
