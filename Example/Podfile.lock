@@ -1,15 +1,15 @@
 PODS:
-  - AppsFlyerFramework (6.14.5):
-    - AppsFlyerFramework/Main (= 6.14.5)
-  - AppsFlyerFramework/Main (6.14.5)
-  - MetricsReporter (1.2.1):
+  - AppsFlyerFramework (6.17.6):
+    - AppsFlyerFramework/Main (= 6.17.6)
+  - AppsFlyerFramework/Main (6.17.6)
+  - MetricsReporter (2.0.0):
     - RSCrashReporter (= 1.0.1)
     - RudderKit (= 1.4.0)
   - RSCrashReporter (1.0.1)
-  - Rudder (1.27.0):
-    - MetricsReporter (= 1.2.1)
-  - Rudder-Appsflyer (2.6.0):
-    - AppsFlyerFramework (~> 6.14.5)
+  - Rudder (1.31.1):
+    - MetricsReporter (= 2.0.0)
+  - Rudder-Appsflyer (2.7.0):
+    - AppsFlyerFramework (~> 6.14)
     - Rudder (~> 1.12)
   - RudderKit (1.4.0)
 
@@ -29,13 +29,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AppsFlyerFramework: 6bd90198428b9646a5653f8e0f19de529788b70e
-  MetricsReporter: 99596ee5003c69949ed2f50acc34aee83c42f843
+  AppsFlyerFramework: c2a11846e1f716132449810e0fb5f191f4f1bf4c
+  MetricsReporter: 364b98791e868b10e9d512eb50af28d8c11e5cdb
   RSCrashReporter: 6b8376ac729b0289ebe0908553e5f56d8171f313
-  Rudder: 3cfcd9e6c5359cd6d49f411101ed9b894e3b64bd
-  Rudder-Appsflyer: 37b22337c863d400889b2df15395893905e35e9b
+  Rudder: 352cb3417238fb84cc083826d9a5a7cc91efaa69
+  Rudder-Appsflyer: 66b95ecacbacc18f71d8a6176a02b32321d66092
   RudderKit: f272f9872183946452ac94cd7bb2244a71e6ca8f
 
 PODFILE CHECKSUM: 7f2df08a24e0126cb04b415091e6cb134ba7c89b
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
