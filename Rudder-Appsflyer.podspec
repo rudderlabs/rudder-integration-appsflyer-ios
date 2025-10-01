@@ -2,7 +2,7 @@ require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
-appsflyer_sdk_version = '~> 6.14.5'
+appsflyer_sdk_version = '~> 6.14'
 rudder_sdk_version = '~> 1.12'
 
 Pod::Spec.new do |s|
