@@ -108,7 +108,8 @@ NSArray<NSString*>* TRACK_RESERVED_KEYWORDS;
             else if ([eventName isEqualToString:ECommPromotionViewed]){
                 afEventName = AFEventAdView;
                 if(properties[CREATIVE]) {
-                    [afProperties setValue:properties[CREATIVE] forKey:AFEventParamAdRevenueAdType];
+                    [afProperties setValue:properties[CREATIVE] forKey:@"af_adrev_ad_type"];
+                    [afProperties setValue:properties[CREATIVE] forKey:kAppsFlyerAdRevenueAdType];
                 }
                 if(properties[KeyCurrency]) {
                     [afProperties setValue:properties[KeyCurrency] forKey:AFEventParamCurrency];
@@ -117,7 +118,8 @@ NSArray<NSString*>* TRACK_RESERVED_KEYWORDS;
             else if ([eventName isEqualToString:ECommPromotionClicked]){
                 afEventName = AFEventAdClick;
                 if(properties[CREATIVE]) {
-                    [afProperties setValue:properties[CREATIVE] forKey:AFEventParamAdRevenueAdType];
+                    [afProperties setValue:properties[CREATIVE] forKey:@"af_adrev_ad_type"];
+                    [afProperties setValue:properties[CREATIVE] forKey:kAppsFlyerAdRevenueAdType];
                 }
                 if(properties[KeyCurrency]) {
                     [afProperties setValue:properties[KeyCurrency] forKey:AFEventParamCurrency];
