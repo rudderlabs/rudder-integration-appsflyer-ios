@@ -9,6 +9,11 @@ jobs:
     name: Deploy to Cocoapods
     runs-on: macOS-latest
     steps:
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@v2
+      with:
+        egress-policy: audit
+
     - name: Checkout source branch
       uses: actions/checkout@v4
     
