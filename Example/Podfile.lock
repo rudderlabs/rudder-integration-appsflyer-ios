@@ -8,7 +8,7 @@ PODS:
   - RSCrashReporter (1.0.1)
   - Rudder (1.31.1):
     - MetricsReporter (= 2.0.0)
-  - Rudder-Appsflyer (2.7.0):
+  - Rudder-Appsflyer (2.8.0):
     - AppsFlyerFramework (~> 6.14)
     - Rudder (~> 1.12)
   - RudderKit (1.4.0)
@@ -33,7 +33,7 @@ SPEC CHECKSUMS:
   MetricsReporter: 364b98791e868b10e9d512eb50af28d8c11e5cdb
   RSCrashReporter: 6b8376ac729b0289ebe0908553e5f56d8171f313
   Rudder: 352cb3417238fb84cc083826d9a5a7cc91efaa69
-  Rudder-Appsflyer: 66b95ecacbacc18f71d8a6176a02b32321d66092
+  Rudder-Appsflyer: 89f8a8a86094e79f915d66adb3ba8252faa01a2c
   RudderKit: f272f9872183946452ac94cd7bb2244a71e6ca8f
 
 PODFILE CHECKSUM: 7f2df08a24e0126cb04b415091e6cb134ba7c89b
