@@ -55,19 +55,8 @@ NSArray<NSString*>* TRACK_RESERVED_KEYWORDS;
         
         NSMutableDictionary *afTraits = [[NSMutableDictionary alloc] init];
         if ([message.context.traits[@"email"] isKindOfClass:[NSString class]]) {
-            [afTraits setObject:message.context.traits[@"email"] forKey:@"email"];
-        }
-        
-        if ([message.context.traits[@"firstName"] isKindOfClass:[NSString class]]) {
-            [afTraits setObject:message.context.traits[@"firstName"] forKey:@"firstName"];
-        }
-        
-        if ([message.context.traits[@"lastName"] isKindOfClass:[NSString class]]) {
-            [afTraits setObject:message.context.traits[@"lastName"] forKey:@"lastName"];
-        }
-        
-        if ([message.context.traits[@"username"] isKindOfClass:[NSString class]]) {
-            [afTraits setObject:message.context.traits[@"username"] forKey:@"username"];
+            NSString *emailValue = (NSString *)message.context.traits[@"email"];
+            [[AppsFlyerLib shared] setUserEmails:@[emailValue] withCryptType:EmailCryptTypeNone];
         }
         
         [[AppsFlyerLib shared] setAdditionalData:afTraits];
