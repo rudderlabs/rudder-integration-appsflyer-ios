@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 3.0.0 (2025-10-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* **appsflyer:** update identify event to use setUserEmails API
+
+### Features
+
+* **appsflyer:** update identify event to use setUserEmails API ([779f32a](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/779f32a391daaca3d91a6e0b1db87367c7202de4))
+
 ## 2.8.0 (2025-10-06)
 
 

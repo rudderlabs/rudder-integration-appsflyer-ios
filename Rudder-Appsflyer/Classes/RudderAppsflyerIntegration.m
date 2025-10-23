@@ -49,28 +49,10 @@ NSArray<NSString*>* TRACK_RESERVED_KEYWORDS;
     if ([type isEqualToString:@"identify"]) {
         [[AppsFlyerLib shared] setCustomerUserID:message.userId];
         
-        if ([message.context.traits[@"currencyCode"] isKindOfClass:[NSString class]]) {
-            [AppsFlyerLib shared].currencyCode = [[NSString alloc] initWithFormat:@"%@", message.context.traits[@"currencyCode"]];
-        }
-        
-        NSMutableDictionary *afTraits = [[NSMutableDictionary alloc] init];
         if ([message.context.traits[@"email"] isKindOfClass:[NSString class]]) {
-            [afTraits setObject:message.context.traits[@"email"] forKey:@"email"];
+            NSString *emailValue = (NSString *)message.context.traits[@"email"];
+            [[AppsFlyerLib shared] setUserEmails:@[emailValue] withCryptType:EmailCryptTypeSHA256];
         }
-        
-        if ([message.context.traits[@"firstName"] isKindOfClass:[NSString class]]) {
-            [afTraits setObject:message.context.traits[@"firstName"] forKey:@"firstName"];
-        }
-        
-        if ([message.context.traits[@"lastName"] isKindOfClass:[NSString class]]) {
-            [afTraits setObject:message.context.traits[@"lastName"] forKey:@"lastName"];
-        }
-        
-        if ([message.context.traits[@"username"] isKindOfClass:[NSString class]]) {
-            [afTraits setObject:message.context.traits[@"username"] forKey:@"username"];
-        }
-        
-        [[AppsFlyerLib shared] setAdditionalData:afTraits];
     } else if ([type isEqualToString:@"track"]) {
         NSString *eventName = message.event;
         if (eventName != nil) {
