@@ -89,14 +89,23 @@ jobs:
           echo "Current version: $CURRENT_VERSION_VALUE"
           echo "New version: $NEW_VERSION_VALUE"
           npx replace $CURRENT_VERSION_VALUE $NEW_VERSION_VALUE README.md
-          git add README.md
           echo ${{ steps.create-release.outputs.new_version }}
           echo "commit_summary=$SUMMARY" >> $GITHUB_OUTPUT
-          npx standard-version -a
+          npx standard-version -a --skip.commit --skip.tag
 
-      - name: Push new version in release branch & tag
-        run: |
-          git push --follow-tags
+      - name: Create verified commit via API
+        uses: ryancyq/github-signed-commit@e9f3b28c80da7be66d24b8f501a5abe82a6b855f # v1.2.0
+        env:
+          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+        with:
+          branch-name: ${{ steps.create-release.outputs.branch_name }}
+          commit-message: 'chore(release): v${{ steps.create-release.outputs.new_version }}'
+          files: |
+            CHANGELOG.md
+            README.md
+            package.json
+            package-lock.json
+          tag: 'v${{ steps.create-release.outputs.new_version }}'
 
       - name: Create pull request into master
         uses: repo-sync/pull-request@7e79a9f5dc3ad0ce53138f01df2fad14a04831c5
