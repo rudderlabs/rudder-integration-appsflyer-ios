@@ -27,7 +27,6 @@ jobs:
           private-key: ${{ secrets.RELEASE_PRIVATE_KEY }}
           permission-contents: write # to create commits, tags, and push branches
           permission-pull-requests: write # to create and update PRs
-          permission-members: read # to request team reviewers on PRs
 
       - name: Checkout source branch
         uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
@@ -86,14 +85,14 @@ jobs:
           HUSKY: 0
         run: |
           npm i -g conventional-changelog-cli
-          SUMMARY=$(((npx conventional-changelog -u) 2>&1) | sed "s/*/<br> */g" | sed "s/#/ /g" | tr -d '\n' || true)
-          echo $SUMMARY
           echo "Current version: $CURRENT_VERSION_VALUE"
           echo "New version: $NEW_VERSION_VALUE"
           npx replace $CURRENT_VERSION_VALUE $NEW_VERSION_VALUE README.md
           echo ${{ steps.create-release.outputs.new_version }}
-          echo "commit_summary=$SUMMARY" >> $GITHUB_OUTPUT
           npx standard-version -a --skip.commit --skip.tag
+          SUMMARY=$(((npx conventional-changelog -u) 2>&1) | sed "s/*/<br> */g" | sed "s/#/ /g" | tr -d '\n' || true)
+          echo $SUMMARY
+          echo "commit_summary=$SUMMARY" >> $GITHUB_OUTPUT
 
       - name: Create verified commit via API
         uses: ryancyq/github-signed-commit@e9f3b28c80da7be66d24b8f501a5abe82a6b855f # v1.2.0
@@ -106,7 +105,6 @@ jobs:
             CHANGELOG.md
             README.md
             package.json
-            package-lock.json
           tag: 'v${{ steps.create-release.outputs.new_version }}'
 
       - name: Create pull request into master
@@ -117,4 +115,3 @@ jobs:
           github_token: ${{ steps.generate-token.outputs.token }}
           pr_title: "chore(release): pulling ${{ steps.create-release.outputs.branch_name }} into master"
           pr_body: ":crown: *An automated PR*\n\n${{ steps.finish-release.outputs.commit_summary }}"
-          pr_reviewer: '@rudderlabs/sdk-ios'
