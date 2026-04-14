@@ -62,4 +62,4 @@ jobs:
         with:
           branches: 'release/*'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}

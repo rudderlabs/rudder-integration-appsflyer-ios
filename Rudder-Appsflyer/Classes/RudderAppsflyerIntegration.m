@@ -91,7 +91,6 @@ NSArray<NSString*>* TRACK_RESERVED_KEYWORDS;
                 afEventName = AFEventAdView;
                 if(properties[CREATIVE]) {
                     [afProperties setValue:properties[CREATIVE] forKey:@"af_adrev_ad_type"];
-                    [afProperties setValue:properties[CREATIVE] forKey:kAppsFlyerAdRevenueAdType];
                 }
                 if(properties[KeyCurrency]) {
                     [afProperties setValue:properties[KeyCurrency] forKey:AFEventParamCurrency];
@@ -101,7 +100,6 @@ NSArray<NSString*>* TRACK_RESERVED_KEYWORDS;
                 afEventName = AFEventAdClick;
                 if(properties[CREATIVE]) {
                     [afProperties setValue:properties[CREATIVE] forKey:@"af_adrev_ad_type"];
-                    [afProperties setValue:properties[CREATIVE] forKey:kAppsFlyerAdRevenueAdType];
                 }
                 if(properties[KeyCurrency]) {
                     [afProperties setValue:properties[KeyCurrency] forKey:AFEventParamCurrency];
