@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 3.1.0 (2026-04-14)
+
+
+### Features
+
+* remove duplicate ad-revenue key ([#81](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/issues/81)) ([c2fe954](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/c2fe9541913ed247c40e174bbb90157f76f28709))
+
 ## 3.0.0 (2025-10-22)
 
 
