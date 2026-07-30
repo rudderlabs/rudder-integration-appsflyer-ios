@@ -13,7 +13,7 @@ permissions:
 jobs:
   release:
     permissions:
-      contents: read # to checkout code; App Token handles all writes
+      contents: read  # GitHub App token handles release writes
     name: Publish new release
     runs-on: ubuntu-latest
     if: startsWith(github.event.pull_request.head.ref, 'release/') && github.event.pull_request.merged == true # only merged pull requests must trigger this job
@@ -39,25 +39,24 @@ jobs:
           VERSION="${BRANCH_NAME#release/}"
           echo "release_version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Checkout source branch
-        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
-        with:
-          fetch-depth: 0
-          token: ${{ steps.generate-token.outputs.token }}
-
-      - name: Set Node 16
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
-        with:
-          node-version: 16
-
-      - name: Create Github Release
-        id: create_release
+      - name: Publish GitHub release
         env:
-          HUSKY: 0
-          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ steps.generate-token.outputs.token }}
+          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+          VERSION: ${{ steps.extract-version.outputs.release_version }}
         run: |
-          npx conventional-github-releaser -p angular
+          TAG="v${VERSION}"
+
+          if gh release view "$TAG" --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            echo "Release $TAG already exists; nothing to publish."
+            exit 0
+          fi
+
+          gh release create "$TAG" \
+            --repo "${{ github.repository }}" \
+            --verify-tag \
+            --title "$TAG" \
+            --generate-notes \
+            --latest
 
       - name: Delete release branch
         uses: koj-co/delete-merged-action@63a03c35810a8a7d4840d18793c0f68ff8b59450 # master

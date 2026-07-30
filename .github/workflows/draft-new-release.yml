@@ -47,7 +47,7 @@ jobs:
         run: |
           source_branch_name=${GITHUB_REF##*/}
           release_type=release
-          git fetch origin master --depth=1
+          git fetch origin master
           git merge origin/master
           current_version=$(jq -r .version package.json)
 
