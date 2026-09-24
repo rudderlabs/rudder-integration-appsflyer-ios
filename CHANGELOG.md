@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/compare/v3.1.0...v3.1.1) (2026-09-24)
+
+
+### Bug Fixes
+
+* sdk-5211 correct ios release workflows ([#88](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/issues/88)) ([f196c54](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/f196c543016afa8e01f9f4085d3f836ac27a78ec))
+* use full semantic version for AppsFlyer SPM dependency ([cd12bd6](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/cd12bd69fa5ccf8e3a08f850ab8a49a6c0388a3e))
+* **vuln:** pin and bump action refs (SEC-171) ([a4384d4](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/a4384d49cb474316129695f8bdfb2d7865af91aa))
+
 ## 3.1.0 (2026-04-14)
 
 
