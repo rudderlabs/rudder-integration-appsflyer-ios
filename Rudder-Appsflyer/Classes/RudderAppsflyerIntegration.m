@@ -51,7 +51,7 @@ NSArray<NSString*>* TRACK_RESERVED_KEYWORDS;
         
         if ([message.context.traits[@"email"] isKindOfClass:[NSString class]]) {
             NSString *emailValue = (NSString *)message.context.traits[@"email"];
-            [[AppsFlyerLib shared] setUserEmails:@[emailValue] withCryptType:EmailCryptTypeSHA256];
+            [[AppsFlyerLib shared] setUserEmail:emailValue];
         }
     } else if ([type isEqualToString:@"track"]) {
         NSString *eventName = message.event;
