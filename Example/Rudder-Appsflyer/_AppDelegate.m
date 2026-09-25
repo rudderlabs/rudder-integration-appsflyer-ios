@@ -48,6 +48,7 @@
         }
     }
     
+    
     return YES;
 }
 
@@ -78,4 +79,13 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+@end
+
+// Minimal UIScene adoption: required for apps built with the iOS 26+ SDK.
+// The storyboard named in the scene manifest instantiates the window.
+@interface _SceneDelegate : UIResponder <UIWindowSceneDelegate>
+@property (strong, nonatomic) UIWindow *window;
+@end
+
+@implementation _SceneDelegate
 @end
