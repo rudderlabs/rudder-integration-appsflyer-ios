@@ -87,11 +87,29 @@ let package = Package(
 ```
 #import <AppsFlyerLib/AppsFlyerLib.h>
 
-[[AppsFlyerLib shared] setAppsFlyerDevKey:<devKey>];
-[[AppsFlyerLib shared] setAppleAppID:<appleAppId>];
+[[AppsFlyerLib shared] initWithDevKey:<devKey> appleAppId:<appleAppId>];
 [AppsFlyerLib shared].isDebug = YES;
-[[AppsFlyerLib shared] start];
+
+// AppsFlyer SDK v7 never starts automatically. Call start from inside the
+// session-ready listener, after any pre-conditions (ATT/consent) resolve.
+[[AppsFlyerLib shared] registerSessionReadyListener:^{
+    [[AppsFlyerLib shared] start];
+}];
 ```
+
+> **Note:** If `initWithDevKey:appleAppId:` and `start` are not called, this integration
+> still forwards events to the AppsFlyer SDK, but the SDK will not send them to
+> AppsFlyer — with no error reported.
+
+## Migrating to 4.x (AppsFlyer SDK 7)
+
+Version 4.0.0 of this integration requires AppsFlyer SDK 7.x. If you are upgrading from 3.x:
+
+* Replace `setAppsFlyerDevKey:` and `setAppleAppID:` with `initWithDevKey:appleAppId:` — the old setters are read-only properties in AppsFlyer 7.
+* Move your `start` call from `applicationDidBecomeActive:` into a `registerSessionReadyListener:` block — the SDK no longer starts automatically, and starting it from the listener preserves the first session even when you defer `start` for consent or ATT.
+* `waitForATTUserAuthorizationWithTimeoutInterval:` is deprecated — collect ATT consent inside the session-ready listener instead.
+* The email set via the `identify` event is now hashed on-device (SHA-256) by AppsFlyer's `setUserEmail` API; no change is needed in your `identify` calls.
+* To stay on AppsFlyer 6.x, keep using the 3.x releases of this integration.
 
 ## Initialize ```RSClient```
 

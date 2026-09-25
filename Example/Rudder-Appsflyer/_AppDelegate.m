@@ -19,13 +19,17 @@
 {
     // Override point for customization after application launch.
     // First Initialize the Appsflyer iOS SDK
-    [[AppsFlyerLib shared] setAppsFlyerDevKey:@"<devKey>"];
-    [[AppsFlyerLib shared] setAppleAppID:@"<appleAppId"];
+    [[AppsFlyerLib shared] initWithDevKey:@"<devKey>" appleAppId:@"<appleAppId>"];
     [AppsFlyerLib shared].isDebug = YES;
-    
-    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:30];
-    
-    
+
+    // AppsFlyer SDK v7 never starts automatically: start it from inside the
+    // session-ready listener, after any pre-conditions (ATT/consent) resolve.
+    [[AppsFlyerLib shared] registerSessionReadyListener:^{
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            [[AppsFlyerLib shared] start];
+        }];
+    }];
+
     /// Copy the `SampleRudderConfig.plist` and rename it to`RudderConfig.plist` on the same directory.
     /// Update the values as per your need.
     
@@ -67,13 +71,6 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [[AppsFlyerLib shared] start];
-    
-         
-         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-           NSLog(@"Status: %lu", (unsigned long)status);
-         }];
-    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
