@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/compare/v3.1.1...v4.0.0) (2026-09-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* AppsFlyer SDK 6.x is no longer supported. The removed
+setUserEmails API is replaced by setUserEmail (hashed on-device). Apps must
+initialize AppsFlyer with initWithDevKey:appleAppId: and call start() inside
+registerSessionReadyListener: — the SDK no longer auto-starts.
+
+### Features
+
+* require AppsFlyer SDK 7.x ([9ddf4df](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/9ddf4df95620472e93096001e697190c3b296f33))
+
 ### [3.1.1](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/compare/v3.1.0...v3.1.1) (2026-09-24)
 
 
