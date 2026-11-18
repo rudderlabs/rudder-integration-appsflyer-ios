@@ -103,7 +103,7 @@ let package = Package(
 
 ## Migrating to 4.x (AppsFlyer SDK 7)
 
-Version 4.1.0 of this integration requires AppsFlyer SDK 7.x. If you are upgrading from 3.x:
+Version 4.0.0 of this integration requires AppsFlyer SDK 7.x. If you are upgrading from 3.x:
 
 * Replace `setAppsFlyerDevKey:` and `setAppleAppID:` with `initWithDevKey:appleAppId:` — the old setters are read-only properties in AppsFlyer 7.
 * Move your `start` call from `applicationDidBecomeActive:` into a `registerSessionReadyListener:` block — the SDK no longer starts automatically, and starting it from the listener preserves the first session even when you defer `start` for consent or ATT.
