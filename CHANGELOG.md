@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/compare/v4.0.0...v4.1.0) (2026-11-18)
+
+
+### Features
+
+* raise minimum iOS deployment target to 15.0 ([103a52b](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/commit/103a52bbc14c4175e6f129b3dd50a21d3423d1a6)), closes [#97](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/issues/97)
+
 ## [4.0.0](https://github.com/rudderlabs/rudder-integration-appsflyer-ios/compare/v3.1.1...v4.0.0) (2026-09-28)
 
 
