@@ -37,7 +37,7 @@ You can also add the RudderStack iOS SDK via Swift Package Mangaer, via one of t
 
 * Enter the package repository (`git@github.com/rudderlabs/rudder-integration-appsflyer-ios.git`) in the search bar.
 
-* In **Dependency Rule**, select **Up to Next Major Version** and enter `4.0.0` as the value, as shown:
+* In **Dependency Rule**, select **Up to Next Major Version** and enter `4.1.0` as the value, as shown:
 
 ![Setting dependency](https://user-images.githubusercontent.com/59817155/145574696-8c849749-13e0-40d5-aacb-3fccb5c8e67d.png)
 
@@ -65,7 +65,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "git@github.com/rudderlabs/rudder-integration-appsflyer-ios.git", from: "4.0.0")
+        .package(url: "git@github.com/rudderlabs/rudder-integration-appsflyer-ios.git", from: "4.1.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -103,7 +103,7 @@ let package = Package(
 
 ## Migrating to 4.x (AppsFlyer SDK 7)
 
-Version 4.0.0 of this integration requires AppsFlyer SDK 7.x. If you are upgrading from 3.x:
+Version 4.1.0 of this integration requires AppsFlyer SDK 7.x. If you are upgrading from 3.x:
 
 * Replace `setAppsFlyerDevKey:` and `setAppleAppID:` with `initWithDevKey:appleAppId:` — the old setters are read-only properties in AppsFlyer 7.
 * Move your `start` call from `applicationDidBecomeActive:` into a `registerSessionReadyListener:` block — the SDK no longer starts automatically, and starting it from the listener preserves the first session even when you defer `start` for consent or ATT.
